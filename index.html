@@ -237,6 +237,42 @@
   }
   :focus-visible{outline:2px solid var(--ochre); outline-offset:2px;}
   @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} }
+
+  /* ---------- lightbox (klik om te vergroten) ---------- */
+  .klikbare-foto{ cursor:zoom-in; }
+  .lightbox-overlay{
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%; height:100%;
+    background:rgba(51,43,34,0.92);
+    z-index:1000;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    cursor:zoom-out;
+  }
+  .lightbox-overlay.actief{ display:flex; }
+  .lightbox-overlay img{
+    max-width:90%;
+    max-height:90%;
+    object-fit:contain;
+    border-radius:3px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
+  }
+  .lightbox-sluit{
+    position:absolute;
+    top:24px; right:32px;
+    color:var(--stone);
+    font-family:'Jost',sans-serif;
+    font-size:2rem;
+    line-height:1;
+    background:none;
+    border:none;
+    cursor:pointer;
+    opacity:0.8;
+  }
+  .lightbox-sluit:hover{ opacity:1; }
 </style>
 </head>
 <body>
@@ -270,7 +306,7 @@
       </div>
     </div>
     <div class="hero-visual">
-      <img src="images/hero.jpg" alt="Zuid-Frans landhuis, buitenaanzicht" class="photo">
+      <img src="images/hero.jpg" alt="Zuid-Frans landhuis, buitenaanzicht" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
     </div>
   </div>
 </section>
@@ -284,7 +320,7 @@
 
     <div class="feature-grid">
       <div class="visual">
-        <img src="images/woonkamer-1.jpg" alt="Woonkamer met zithoek en eettafel" class="photo">
+        <img src="images/woonkamer-1.jpg" alt="Woonkamer met zithoek en eettafel" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
       <div class="text">
         <h3>Woonkamer</h3>
@@ -309,13 +345,13 @@
         </ul>
       </div>
       <div class="visual">
-        <img src="images/keuken-1.jpg" alt="Keuken met Falcon fornuis" class="photo">
+        <img src="images/keuken-1.jpg" alt="Keuken met Falcon fornuis" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
     </div>
 
     <div class="photo-row">
-      <img src="images/woonkamer-2.jpg" alt="Woonkamer, andere hoek">
-      <img src="images/keuken-2.jpg" alt="Keuken, ander aanzicht">
+      <img src="images/woonkamer-2.jpg" alt="Woonkamer, andere hoek" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/keuken-2.jpg" alt="Keuken, ander aanzicht" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
     </div>
   </div>
 </section>
@@ -350,17 +386,17 @@
     </div>
 
     <div class="photo-row">
-      <img src="images/slaapkamer-1.jpg" alt="Slaapkamer 1">
-      <img src="images/slaapkamer-2.jpg" alt="Slaapkamer 2">
-      <img src="images/slaapkamer-3.jpg" alt="Slaapkamer 3">
-      <img src="images/slaapkamer-4.jpg" alt="Kinderkamer met stapelbed">
+      <img src="images/slaapkamer-1.jpg" alt="Slaapkamer 1" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/slaapkamer-2.jpg" alt="Slaapkamer 2" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/slaapkamer-3.jpg" alt="Slaapkamer 3" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/slaapkamer-4.jpg" alt="Kinderkamer met stapelbed" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
     </div>
 
     <div class="divider"></div>
 
     <div class="feature-grid">
       <div class="visual">
-        <img src="images/badkamer1-1.jpg" alt="Badkamer 1 met ligbad" class="photo">
+        <img src="images/badkamer1-1.jpg" alt="Badkamer 1 met ligbad" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
       <div class="text">
         <h3>Badkamer 1</h3>
@@ -383,7 +419,7 @@
         </ul>
       </div>
       <div class="visual">
-        <img src="images/badkamer2-1.jpg" alt="Badkamer 2" class="photo">
+        <img src="images/badkamer2-1.jpg" alt="Badkamer 2" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
     </div>
   </div>
@@ -397,7 +433,7 @@
     </div>
     <div class="feature-grid">
       <div class="visual" style="aspect-ratio:16/10;">
-        <img src="images/zwembad-1.jpg" alt="Privézwembad met poolhouse" class="photo">
+        <img src="images/zwembad-1.jpg" alt="Privézwembad met poolhouse" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
       <div class="text">
         <ul>
@@ -410,9 +446,9 @@
     </div>
 
     <div class="photo-row">
-      <img src="images/zwembad-2.jpg" alt="Zwembad, ander aanzicht">
-      <img src="images/zwembad-3.jpg" alt="Poolhouse en terras">
-      <img src="images/zwembad-4.jpg" alt="Terras met parasol">
+      <img src="images/zwembad-2.jpg" alt="Zwembad, ander aanzicht" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/zwembad-3.jpg" alt="Poolhouse en terras" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/zwembad-4.jpg" alt="Terras met parasol" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
     </div>
   </div>
 </section>
@@ -428,14 +464,14 @@
         <p>Vanaf het terras heeft u prachtig uitzicht op de paardenweide en glooiende heuvels — u waant zich middenin de natuur, en toch zijn alle voorzieningen zoals bakker en supermarkt op loop- of fietsafstand aanwezig (1,5 km).</p>
       </div>
       <div class="visual" style="aspect-ratio:16/10;">
-        <img src="images/omgeving-1.jpg" alt="Uitzicht op paardenweide en heuvels" class="photo">
+        <img src="images/omgeving-1.jpg" alt="Uitzicht op paardenweide en heuvels" class="photo klikbare-foto" onclick="toonGroot(this.src, this.alt)">
       </div>
     </div>
 
     <div class="photo-row">
-      <img src="images/omgeving-2.jpg" alt="Omgeving, dorp">
-      <img src="images/omgeving-3.jpg" alt="Omgeving, landschap">
-      <img src="images/omgeving-4.jpg" alt="Omgeving, panorama">
+      <img src="images/omgeving-2.jpg" alt="Omgeving, dorp" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/omgeving-3.jpg" alt="Omgeving, landschap" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
+      <img src="images/omgeving-4.jpg" alt="Omgeving, panorama" class="klikbare-foto" onclick="toonGroot(this.src, this.alt)">
     </div>
 
     <div class="signpost">
@@ -575,6 +611,11 @@
   <div class="wrap">Zuid-Frans landhuis · Saint-Nicolas-de-la-Grave, Tarn-et-Garonne</div>
 </footer>
 
+<div class="lightbox-overlay" id="lightbox" onclick="sluitGroot()">
+  <button class="lightbox-sluit" onclick="event.stopPropagation(); sluitGroot()" aria-label="Sluiten">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
 <script>
   const form = document.getElementById('contactForm');
   const status = document.getElementById('formStatus');
@@ -603,6 +644,21 @@
       });
     });
   }
+
+  // ---------- lightbox ----------
+  function toonGroot(src, alt) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    img.alt = alt || '';
+    lb.classList.add('actief');
+  }
+  function sluitGroot() {
+    document.getElementById('lightbox').classList.remove('actief');
+  }
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') sluitGroot();
+  });
 </script>
 </body>
 </html>
